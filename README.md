@@ -1,5 +1,3 @@
-# StreamingLLM-for-NVIDIA-Jetson-Xavier-NX
-StreamingLLM for NVIDIA Jetson Xavier NX
 摘  要:	在大语言模型（LLMs）的流式应用如多轮对话中，实现长文本的持续交互具有迫切需求，但在显存资源受限的边缘计算平台上面临着两个挑战。首先，自回归推理阶段的键值缓存随序列长度线性增加，极易导致显存溢出；其次，主流LLMs难以泛化到超出其预训练窗口的文本长度。虽然滑动窗口注意力是一种直观的解决思路，但一旦初始tokens被驱逐，模型性能将发生剧烈下降。韩松团队观察到基于Transformer的LLMs的“注意力汇聚”现象，即模型会将极高的注意力分数分配给初始tokens以维持计算分布的稳定性，由此保留初始tokens的KV状态可以有效恢复窗口注意力的性能，并提出了StreamingLLM框架。本文在NVIDIA Jetson Xavier NX 8GB开发者套件上实现了该框架，无需微调即可使LLMs在恒定的显存占用下具备处理无限长序列的能力。本文针对 TinyLlama-1.1B-Chat-v1.0、Llama-3.2-1B及Falcon3-1B-Instruct等轻量化LLMs进行了详细的困惑度与流式性能评估。
 
 ## 使用方法
